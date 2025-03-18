@@ -1,0 +1,111 @@
+.wrapper__tableContainer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+}
+#circle-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    overflow: visible; /* Чтобы элементы не обрезались */
+}
+.circle-item {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 120px;
+    transform: translate(-50%, -50%);
+}
+.circle-item {
+    width: 50px;
+    height: 50px;
+    
+    img {
+        overflow: visible;
+        border-radius: 50%;
+        padding: 15px;
+        background: var(--noActivePurple);
+        transition: .3s ease;
+    }
+
+    &:hover {
+        img {
+            background: #FFCF2D;
+            transition: .3s ease;
+        }
+    }
+}
+.circle-text {
+    font-family: "Ubuntu-Bold";
+    width: 108px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: var(--purple);
+}
+
+.center-image {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    width: 120px;
+    height: 120px;
+    z-index: 10;
+}
+.center-image img {
+    width: 100%;
+}
+
+
+.tabl {
+    display: none;
+    flex-direction: column;
+    margin-top: 32px;
+
+    &__icon {
+        display: flex;
+        align-self: center;
+    }
+
+    &__container {
+        margin-top: 13px;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        color: var(--purple);
+
+        .icon {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+        }
+    }
+}
+
+@media (max-width:350px) {
+    #circle-container {
+        display: none;
+    }
+    .wrapper__tableContainer .tabl {
+        display: flex;
+    }
+}

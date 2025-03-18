@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #fff;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3b4371', endColorstr='#f3904f', GradientType=0);
+	background-attachment: fixed;
+}
+
+.main {
+    width: 100%;
+    font-family: 'Ubuntu-Regular';
+}
+
+:root {
+    --white:#fff;
+    --yellow:#FFCF2D;
+    --pink:#C15CA1;
+    --purple:#9564AA;
+    --black:#000;
+    --red:#AA6464;
+    --backBtn:#684677;
+    --noActiveRed:rgb(170,100,100, 0.2);
+    --noActivePurple:rgb(149,100,170, 0.2);
+}
+
+@font-face {
+    font-family: 'Ubuntu-Bold';
+    src: url('../fonts/Ubuntu-Bold.ttf');
+    font-style: normal;
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Ubuntu-Medium';
+    src: url('../fonts/Ubuntu-Medium.ttf');
+    font-style: normal;
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Ubuntu-Regular';
+    src: url('../fonts/Ubuntu-Regular.ttf');
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Ubuntu-Light';
+    src: url('../fonts/Ubuntu-Light.ttf');
+    font-style: normal;
+    font-weight: 300;
+}

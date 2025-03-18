@@ -1,0 +1,104 @@
+.navBar {
+    display: flex;
+    // height: 100%;
+    grid-area: navbar;
+
+    &__container {
+        width: 100%;
+        background: rgb(149,100,170, 0.1);
+        border: 2px solid rgb(149,100,170, 0.2);
+        border-radius: 10px;
+        padding: 18px 20px 18px 18px;
+
+        .user {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: center;
+
+            &__wrappper {
+                display: flex;
+                flex-direction: column;
+                margin-left: 15px;
+                gap: 5px;
+
+                .name{
+                    font-family: 'Ubuntu-Bold';
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 100%;
+                    color: var(--black);
+                }
+
+                .status {
+                    font-family: 'Ubuntu-Regular';
+                    padding: 5px 10px;
+                    background: var(--backBtn);
+                    border-radius: 5px;
+                    color: var(--white);
+                    font-weight: 400;
+                    font-size: 10px;
+                    line-height: 100%;
+
+                }
+            }
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            width: 100%;
+            background: rgb(149,100,170, 0.2);
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-left: 12px;
+            li {
+                padding: 5px 4px;
+                border-radius: 5px;
+                list-style-type: none;
+                transition: .3s ease;
+
+                &:first-child {
+                    margin-top: 21px;
+                }
+
+                &:hover {
+                    background-color: rgb(149,100,170, 0.2);
+                    transition: .3s ease;
+                }
+
+                a{
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+
+                    .icon {
+                        margin-right: 30px;
+                    }
+
+                    p {
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 100%;
+                        color: var(--black);
+                        letter-spacing: 0%;
+                        // font-family: Ubuntu;
+                    }
+                }
+
+                .icon {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:1040px) {
+    .navBar {
+        display: none;
+    }
+}

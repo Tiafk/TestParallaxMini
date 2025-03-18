@@ -1,0 +1,58 @@
+.content .wrapper__offerContainer .mob {
+  display: flex;
+  flex-direction: row;
+  padding: 15px 0px;
+}
+
+.offerSlider{
+  position: relative;
+  overflow: hidden;
+
+  &__image {
+    text-align: center;
+    max-width: 260px;
+    margin: 0 auto;
+
+    .mob {
+      position: relative;
+      display: flex;
+      justify-content: end;
+
+      .cashContainer {
+        justify-content: center;
+        width: 60%;
+      }
+    }
+  }
+
+  .swiper-button-prev::after, 
+  .swiper-button-next::after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    color: #000;
+    font-size: 20px;
+  }
+
+  //Буллеты
+  .swiper-pagination {
+    position: relative;
+    margin-top: 10px;
+    .swiper-pagination-bullet {
+      width: 7px;
+      height: 7px;
+      line-height: 7px;
+      background-color: var(--yellow);
+    }
+  }
+}
+
+@media (max-width:340px) {
+  .offerSlider .offerSlider__image  {
+    margin-left: 20px;
+  }
+}
