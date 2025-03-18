@@ -6,12 +6,21 @@
 
 body {
   background: #fff;
+}
+
+body.lock {
   overflow: hidden;
 }
 
+.content.lock {
+  filter: blur(3px);
+}
+
 .main {
+  position: relative;
   width: 100%;
   font-family: "Ubuntu-Regular";
+  overflow: hidden;
 }
 
 :root {
@@ -24,6 +33,7 @@ body {
   --backBtn:#684677;
   --noActiveRed:rgb(170,100,100, 0.2);
   --noActivePurple:rgb(149,100,170, 0.2);
+  --navBarMob:#e6d3ed;
 }
 
 @font-face {
@@ -51,11 +61,13 @@ body {
   font-weight: 300;
 }
 .header {
+  position: relative;
   display: flex;
   width: 100%;
   height: 100px;
   background-color: var(--purple);
   justify-content: center;
+  z-index: 15;
 }
 .header__container {
   display: flex;
@@ -66,29 +78,63 @@ body {
   padding: 0 25px;
 }
 .header__burger-menu_button {
-  display: none;
-  align-items: center;
   position: relative;
-  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
   width: 23px;
   height: 16px;
   background-color: transparent;
+  z-index: 1000;
+  transition: 0.3s ease;
+  z-index: 1000;
 }
-.header__burger-menu_button .burger-menu_lines,
-.header__burger-menu_button .burger-menu_lines::after,
-.header__burger-menu_button .burger-menu_lines::before {
-  position: absolute;
+.header__burger-menu_button .burger-menu_lines {
+  display: flex;
+  align-items: center;
   width: 100%;
   height: 2px;
   background-color: white;
 }
-.header__burger-menu_button .burger-menu_lines::before {
+.header__burger-menu_button::before {
   content: "";
-  top: -4px;
+  position: absolute;
+  display: flex;
+  align-self: center;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  top: 1px;
+  transition: 0.3s ease;
 }
-.header__burger-menu_button .burger-menu_lines::after {
+.header__burger-menu_button::after {
   content: "";
-  top: 4px;
+  position: absolute;
+  display: flex;
+  align-self: center;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  bottom: 1px;
+  transition: 0.3s ease;
+}
+.header .active {
+  position: relative;
+  transition: 0.3s ease;
+}
+.header .active .burger-menu_lines {
+  transform: scale(0);
+}
+.header .active::after {
+  transform: rotate(35deg);
+  top: 0;
+  bottom: 0px;
+  transition: 0.3s ease;
+}
+.header .active::before {
+  transform: rotate(-35deg);
+  bottom: 0px;
+  transition: 0.3s ease;
 }
 .header__logo {
   font-family: "Ubuntu-Bold";
@@ -169,14 +215,16 @@ body {
 }
 .navBar {
   display: flex;
+  height: 100%;
   grid-area: navbar;
+  overflow: auto;
 }
 .navBar__container {
-  width: 100%;
+  width: 270px;
   background: rgba(149, 100, 170, 0.1);
   border: 2px solid rgba(149, 100, 170, 0.2);
   border-radius: 10px;
-  padding: 18px 20px 18px 18px;
+  padding: 18px 20px 30px 18px;
 }
 .navBar__container .user {
   display: flex;
@@ -252,9 +300,50 @@ body {
   align-items: center;
 }
 
+.navBar.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  height: 100%;
+  background-color: var(--navBarMob);
+  transform: translateX(0);
+  transition: 0.3s ease;
+  margin-top: calc(50px + 50 * (100vw - 320px) / 1920);
+  z-index: 11;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.navBar.active .navBar__container, .navBar.active .navBar__container ul {
+  flex-grow: 1;
+}
+
+.navBar.active .navBar__container ul {
+  padding-bottom: 40px;
+}
+
+.navBar.active .navBar__container {
+  border: 0;
+  border-radius: 0;
+}
+
 @media (max-width: 1040px) {
   .navBar {
     display: none;
+    overflow: auto;
+    transform: translateX(100%);
+    transition: 0.3s ease;
+  }
+  .navBar.active .navBar__container {
+    border: 0;
+    border-radius: 0;
+    overflow: auto;
+  }
+}
+@media (max-width: 550px) {
+  .navBar.active {
+    width: 100%;
   }
 }
 .app-wrapper {
@@ -273,11 +362,11 @@ body {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  position: absolute;
   pointer-events: none;
   display: flex;
   width: 100%;
   justify-content: space-between;
-  position: absolute;
 }
 
 @media (max-width: 1840px) {
@@ -300,6 +389,7 @@ body {
   grid-area: content;
   box-sizing: border-box;
   margin-left: 31px;
+  filter: blur(0);
 }
 .content .wrapper {
   max-width: 100%;

@@ -16,11 +16,11 @@
 
 .backgroundBalls {
     user-select: none;
+    position: absolute;
     pointer-events: none;
     display: flex;
     width: 100%;
     justify-content: space-between;
-    position: absolute;
 }
 
 @media (max-width:1840px) {

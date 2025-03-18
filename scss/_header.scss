@@ -1,9 +1,11 @@
 .header {
+    position: relative;
     display: flex;
     width: 100%;
     height: 100px;
     background-color: var(--purple);
     justify-content: center;
+    z-index: 15;
 
     &__container {
         display: flex;
@@ -15,38 +17,67 @@
     }
 
     &__burger-menu_button {
-        display: none;
-        align-items: center;
         position: relative;
-        z-index: 1000;
-        // top: 30px;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
         width: 23px;
         height: 16px;
         background-color: transparent;
+        z-index: 1000;
+        transition: 0.3s ease;
+        z-index: 1000;
 
-        .burger-menu_lines,
-        .burger-menu_lines::after,
-        .burger-menu_lines::before {
-          position: absolute;
+        .burger-menu_lines {
+            display: flex;
+            align-items: center;
           width: 100%;
           height: 2px;
           background-color: white;
         }
         
-        .burger-menu_lines::before {
+        &::before {
           content: "";
-          top: -4px;
+          position: absolute;
+          display: flex;
+          align-self: center;
+          width: 100%;
+          height: 2px;
+          background-color: white;
+          top: 1px;
+          transition: 0.3s ease;
         }
         
-        .burger-menu_lines::after {
+        &::after {
           content: "";
-          top: 4px;
+          position: absolute;
+          display: flex;
+          align-self: center;
+          width: 100%;
+          height: 2px;
+          background-color: white;
+          bottom: 1px;
+          transition: 0.3s ease;
         }
         
-        
-        // .burger-menu_button:hover .burger-menu_lines {
-        //   filter: brightness(0.7);
-        // }
+    }
+    .active {
+        position: relative;
+        transition: 0.3s ease;
+        .burger-menu_lines {
+            transform: scale(0);
+        }
+        &::after {
+            transform: rotate(35deg);
+            top: 0;
+            bottom: 0px;
+            transition: 0.3s ease;
+        }
+        &::before {
+            transform: rotate(-35deg);
+            bottom: 0px;
+            transition: 0.3s ease;
+        }
     }
 
     &__logo {

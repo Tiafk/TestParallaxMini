@@ -5,12 +5,21 @@
 
 body {
     background: #fff;
+}
+
+body.lock {
     overflow: hidden;
 }
 
+.content.lock {
+    filter: blur(3px);
+}
+
 .main {
+    position: relative;
     width: 100%;
     font-family: 'Ubuntu-Regular';
+    overflow: hidden;
 }
 
 :root {
@@ -23,6 +32,7 @@ body {
     --backBtn:#684677;
     --noActiveRed:rgb(170,100,100, 0.2);
     --noActivePurple:rgb(149,100,170, 0.2);
+    --navBarMob:#e6d3ed;
 }
 
 @font-face {

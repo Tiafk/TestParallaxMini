@@ -143,8 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// swiper
-
+//swiper
 new Swiper ('.offerSlider', {
 // Навигация
 // Буллеты, текущее положение
@@ -188,3 +187,33 @@ new Swiper ('.offerSlider', {
 });
 
 
+//Burger
+let burgerBtn = document.querySelector('.header__burger-menu_button');
+let burgerMenu = document.querySelector('.navBar');
+let content = document.querySelector('.content');
+let body = document.querySelector('body');
+
+burgerBtn.addEventListener('click', function() {
+    burgerBtn.classList.toggle('active');
+    burgerMenu.classList.toggle('active');
+
+    if (burgerMenu.classList.contains('active')) {
+        body.classList.add('lock');
+        content.classList.add('lock');
+    } else {
+        body.classList.remove('lock');
+        content.classList.remove('lock');
+    }
+});
+
+document.addEventListener("click", function (event) {
+    let isClickInsideNavBar = burgerMenu.contains(event.target);
+    let isClickOnBurger = burgerBtn.contains(event.target);
+
+    if (!isClickInsideNavBar && !isClickOnBurger) {
+        burgerMenu.classList.remove("active");
+        burgerBtn.classList.remove("active");
+        content.classList.remove("lock");
+        body.classList.remove("lock");
+    }
+});
